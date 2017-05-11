@@ -1,34 +1,8 @@
-/*MT: Most of these .App starter classes will be deleted later */
-.home-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
+/* MT: We need to find a better way to do responsive design with the inline styles that react utilizes. I suggest the react-responsive library. */
 
-.home-card {
-    flex: 1 0 33%;
-    margin: 10px;
-}
-
-.App {
-    text-align: center;
-}
-
-.App-logo {
+/*.App-logo {
     animation: App-logo-spin infinite 20s linear;
     height: 80px;
-}
-
-.App-header {
-    background-color: #222;
-    height: 150px;
-    padding: 20px;
-    color: white;
-}
-
-.App-intro {
-    font-size: large;
 }
 
 @keyframes App-logo-spin {
@@ -40,4 +14,22 @@
     .home-container {
         flex-direction: column;
     }
-}
+
+    .home-banner-text {
+        top: 20%;
+    }
+
+    .home-banner-text-header {
+        font-size: 2.9em;
+    }
+
+    .home-banner-text-subhead {
+        font-size: 2.2em;
+    }
+
+    .home-banner-image {
+        align-self: center;
+        max-height: 100vh;
+        width: inherit;
+    }
+}*/
