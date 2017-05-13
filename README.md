@@ -1,5 +1,17 @@
 # README #
 
+## Welcome! ##
+
+This new web app for LawSmith is a work-in-progress. It utilizes React for the JavaScript framework and Material UI for styling DOM elements.
+
+## Screenshots ##
+
+Landing page banner:
+
+![LawSmith banner](/src/images/landing-page.jpg)
+
+## Getting started ##
+
 First, clone the repo:
 
 `git clone git@bitbucket.org:ilsllc/mylawsmith.git`
