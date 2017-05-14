@@ -1,5 +1,6 @@
 import {StyleRoot} from 'radium';
 import React from 'react';
+import PropTypes from 'prop-types';
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
 import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
@@ -64,36 +65,52 @@ class LawSmithAppBar extends React.Component {
         return (
             // MT: When using Material UI components, we need to attach the primary style object to the StyleRoot tag, then create an inner object for the component (in this case, AppBar) to access (i.e. AppBarStyle.style).
             <StyleRoot style={AppBarStyle}>
-                <AppBar
-                    style={AppBarStyle.style}
-                    title={<LawSmithTitle />}
-                    showMenuIconButton={(isMobile.matches ? true : false)}
-                    onLeftIconButtonTouchTap={this.toggleDrawer.bind(this)}
-                    children={<LawSmithAppBarItems key='0'/>}
-                />
-                <AppBarDrawer open={this.state.open} onToggleDrawer={this.toggleDrawer.bind(this)}/>
+                {this.props.data.map(data => (
+                    <div key={data.key}>
+                        <AppBar
+                            style={AppBarStyle.style}
+                            title={<LawSmithTitle titleFirst={data.titleFirst} titleSecond={data.titleSecond}/>}
+                            showMenuIconButton={(isMobile.matches ? true : false)}
+                            onLeftIconButtonTouchTap={this.toggleDrawer.bind(this)}>
+
+                            <LawSmithAppBarItems menuItems={data.menuItems}/>
+                        </AppBar>
+
+                        <AppBarDrawer open={this.state.open} onToggleDrawer={this.toggleDrawer.bind(this)}/>
+                    </div>
+                ))}
             </StyleRoot>
         );
     }
 }
 
-const LawSmithAppBarItems = () => (
-    <StyleRoot style={AppBarToolBarStyle}>
-        <Toolbar style={AppBarToolBarStyle.style}>
-            <ToolbarGroup firstChild={true}>
-                  <FlatButton style={AppBarButton} label="Solutions" />
-                  <FlatButton style={AppBarButton} label="Partnerships" />
-                  <FlatButton style={AppBarButton} label="BlogSmith" />
-            </ToolbarGroup>
-        </Toolbar>
-    </StyleRoot>
-);
-
-const LawSmithTitle = () => (
+function LawSmithTitle(props) {
+    return (
         <StyleRoot style={AppBarTitle}>
-                <span>Law</span>
-                <span style={AppBarTitleText}>Smith</span>
+                <span>{props.titleFirst}</span>
+                <span style={AppBarTitleText}>{props.titleSecond}</span>
         </StyleRoot>
-);
+    );
+}
+
+function LawSmithAppBarItems(props) {
+    return (
+        <StyleRoot style={AppBarToolBarStyle}>
+            <Toolbar style={AppBarToolBarStyle.style}>
+                    <ToolbarGroup>
+                        {props.menuItems.map(data => (
+                            <div key={data.key}>
+                                <FlatButton style={AppBarButton} label={data.title} />
+                            </div>
+                        ))}
+                    </ToolbarGroup>
+            </Toolbar>
+        </StyleRoot>
+    );
+}
+
+LawSmithAppBar.propTypes = {
+    data: PropTypes.array.isRequired
+};
 
 export default LawSmithAppBar;
