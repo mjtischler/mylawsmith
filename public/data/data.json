@@ -1,0 +1,40 @@
+[
+    {
+        "key": 0,
+        "appBar": [
+            {
+                "key": 0,
+                "titleFirst": "Law",
+                "titleSecond": "Smith",
+                "menuItems": [
+                    {
+                        "key": 0,
+                        "title": "Solutions",
+                        "url": "/solutions"
+                    },
+                    {
+                        "key": 1,
+                        "title": "Partnerships",
+                        "url": "/partnerships"
+                    },
+                    {
+                        "key": 2,
+                        "title": "BlogSmith",
+                        "url": "/blog"
+                    }
+                ]
+            }
+        ],
+        "home": [
+            {
+                "key": 0,
+                "title": "We're building partnerships.",
+                "subtitle": "Join our journey.",
+                "button": {
+                    "text": "See what we've created",
+                    "url": "/solutions"
+                }
+            }
+        ]
+    }
+]
