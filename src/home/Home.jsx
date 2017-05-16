@@ -1,7 +1,10 @@
 import {StyleRoot} from 'radium';
 import React from 'react';
+import PropTypes from 'prop-types';
 import FlatButton from 'material-ui/FlatButton';
 import BackgroundImage from '../images/DeLandCourthouse.jpg';
+
+// MT: Set the data returned from the api call in App.jsx.
 
 const HomeStyle = {
     display: 'flex',
@@ -44,28 +47,28 @@ const HomeBannerButtonStyle = {
     }
 };
 
-class Home extends React.Component {
-    render() {
-        return (
-            <StyleRoot style={HomeStyle}>
-                <HomeBannerText />
-            </StyleRoot>
-        );
-    }
+function Home(props) {
+    return (
+        <div>
+            {props.data.map(data => (
+                <div key={data.key}>
+                    <StyleRoot style={HomeStyle}>
+                        <div style={HomeBannerStyle}>
+                            <span style={HomeBannerTextHeaderStyle}>{data.title}</span>
+                            <br />
+                            <span style={HomeBannerTextSubheadStyle}>{data.subtitle}</span>
+                            <br />
+                            <FlatButton style={HomeBannerButtonStyle} label={data.button.text}/>
+                        </div>
+                    </StyleRoot>
+                </div>
+            ))}
+        </div>
+    );
 }
 
-class HomeBannerText extends React.Component {
-    render() {
-        return (
-            <StyleRoot style={HomeBannerStyle}>
-                <span style={HomeBannerTextHeaderStyle}>WE&apos;RE BUILDING PARTNERSHIPS.</span>
-                <br />
-                <span style={HomeBannerTextSubheadStyle}>Join our journey.</span>
-                <br />
-                <FlatButton style={HomeBannerButtonStyle} label="See what we've created"/>
-            </StyleRoot>
-        );
-    }
-}
+Home.propTypes = {
+    data: PropTypes.array.isRequired
+};
 
 export default Home;
