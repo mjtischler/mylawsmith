@@ -14,10 +14,10 @@ export default class App extends React.Component {
     }
 
     componentDidMount() {
-        this.GetSiteData();
+        this.getSiteData();
     }
 
-    GetSiteData() {
+    getSiteData() {
         // MT: When loading json, we need to be sure to run `response.json()` first in the promise chain to populate the `this.state.siteData` object.
         return fetch('/data/data.json')
         .then((response) => {
