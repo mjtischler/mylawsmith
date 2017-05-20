@@ -113,4 +113,13 @@ LawSmithAppBar.propTypes = {
     data: PropTypes.array.isRequired
 };
 
+LawSmithTitle.propTypes = {
+    titleFirst: PropTypes.string.isRequired,
+    titleSecond: PropTypes.string.isRequired
+};
+
+LawSmithAppBarItems.propTypes = {
+    menuItems: PropTypes.array.isRequired
+};
+
 export default LawSmithAppBar;
