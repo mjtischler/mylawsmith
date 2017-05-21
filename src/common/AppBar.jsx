@@ -1,5 +1,6 @@
 import {StyleRoot} from 'radium';
 import React from 'react';
+import {BrowserRouter as Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
@@ -13,6 +14,7 @@ const AppBarStyle = {
     style: {
         position: 'fixed',
         top: '0',
+        height: '64px',
         background: 'none',
         boxShadow: 'none',
         color: 'white'
@@ -87,20 +89,23 @@ class LawSmithAppBar extends React.Component {
 function LawSmithTitle(props) {
     return (
         <StyleRoot style={AppBarTitle}>
-                <span>{props.titleFirst}</span>
-                <span style={AppBarTitleText}>{props.titleSecond}</span>
+            <span>{props.titleFirst}</span>
+            <span style={AppBarTitleText}>{props.titleSecond}</span>
         </StyleRoot>
     );
 }
 
+
 function LawSmithAppBarItems(props) {
     return (
         <StyleRoot style={AppBarToolBarStyle}>
+            <Link to="/solutions" />
+
             <Toolbar style={AppBarToolBarStyle.style}>
                     <ToolbarGroup>
                         {props.menuItems.map(data => (
                             <div key={data.key}>
-                                <FlatButton style={AppBarButton} label={data.title} />
+                                <FlatButton style={AppBarButton} label={data.title} href={data.url}/>
                             </div>
                         ))}
                     </ToolbarGroup>
