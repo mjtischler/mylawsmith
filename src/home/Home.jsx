@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import FlatButton from 'material-ui/FlatButton';
 import BackgroundImage from '../images/DeLandCourthouse.jpg';
 
-// MT: Set the data returned from the api call in App.jsx.
-
 const HomeStyle = {
     display: 'flex',
     height: '731px',
